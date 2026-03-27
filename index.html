@@ -50,16 +50,21 @@
     <script>
     (function() {
         var canvas = $('#canvas');
+
+        var designWidth = 1100;
+        var designHeight = 680;
 		
         if (!canvas[0].getContext) {
             $("#error").show();
             return false;
         }
 
-        var width = canvas.width();
-        var height = canvas.height();        
-        canvas.attr("width", width);
-        canvas.attr("height", height);
+        // Keep a fixed drawing buffer and let CSS scale it for small screens.
+        canvas.attr("width", designWidth);
+        canvas.attr("height", designHeight);
+
+        var width = designWidth;
+        var height = designHeight;
 
         var opts = {
             seed: {
